@@ -7,8 +7,6 @@ import (
 	"context"
 	"log"
 	"path/filepath"
-	//"fmt"
-	//"encoding/json"
 )
 
 type ClientConfig struct {

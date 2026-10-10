@@ -5,7 +5,6 @@ import (
 	"github.com/rivo/tview"
 	"matthewsbromwich.com/pangolin/proxmox"
 	"github.com/luthermonson/go-proxmox"
-	//"context"
 )
 func main() {
 
@@ -31,9 +30,6 @@ func main() {
 		SetBorders(true).
 		AddItem(clientList, 1, 0, 5, 5, 0, 0, true).
 		AddItem(infoForm,    1, 5, 5, 1, 0, 0, false)
-		
-	//TODO	
-	// Get relevant information from proxmox for IP/CPU/RAM usage
 	
 	PopulateList(clientList, infoForm, clientCfg.GetVMs())
 
