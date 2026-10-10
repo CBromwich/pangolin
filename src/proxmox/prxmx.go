@@ -6,6 +6,7 @@ import (
 	"github.com/joho/godotenv"
 	"context"
 	"log"
+	"path/filepath"
 	//"fmt"
 	//"encoding/json"
 )
@@ -16,7 +17,12 @@ type ClientConfig struct {
 
 
 func InitClient() *proxmox.Client {
-	godotenv.Load()
+	ex, err := os.Executable()
+	if err != nil {
+		log.Fatal(err)
+	}
+	envPath := filepath.Join(filepath.Dir(ex), ".env")
+	err = godotenv.Load(envPath)
 	proxmoxToken  := os.Getenv("PROXMOX_TOKEN")
 	proxmoxSecret := os.Getenv("PROXMOX_SECRET")
 
